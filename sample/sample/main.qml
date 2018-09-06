@@ -13,6 +13,11 @@ Window {
         width:parent.width
         height: parent.height*0.5
         source: "./bg.jpg"
+        Behavior on rotation {
+            NumberAnimation{
+                duration: 250
+            }
+        }
     }
     Text {
         id:helloText
@@ -32,11 +37,17 @@ Window {
         columns: 3;
         spacing: 3;
 
+
         Cell { cellColor: 'red'; onClicked: helloText.color = cellColor; }
         Cell { cellColor: 'green'; onClicked: helloText.color = cellColor; }
         Cell { cellColor: 'blue'; onClicked: helloText.color = cellColor; }
         Cell { cellColor: 'yellow'; onClicked: helloText.color = cellColor; }
         Cell { cellColor: 'steelblue'; onClicked: helloText.color = cellColor; }
         Cell { cellColor: 'black'; onClicked: helloText.color = cellColor; }
+        Cell { cellColor: 'gray'; onClicked: helloText.color = cellColor; }
+    }
+    MouseArea{
+        anchors.fill: bg
+        onClicked: bg.rotation +=90;
     }
 }
